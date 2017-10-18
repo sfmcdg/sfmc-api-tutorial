@@ -14,6 +14,8 @@
 
 ## Preamble
 
+This guide is intended to introduce to a developer with no prior knowledge how to use postman and SFMC APIs. Content was used in the hands-on tutorial about SFMC APIs first at presented at the [Salesforce Marketing Cloud developer group October 2017 meeting](https://www.meetup.com/Salesforce-Marketing-Cloud-Developers-Group/events/237067605/). 
+
 ## Prerequisites
 
 ## How to make a SOAP API request using username and password as user credential
