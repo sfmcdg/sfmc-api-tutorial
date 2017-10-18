@@ -18,6 +18,11 @@ This guide is intended to introduce to a developer with no prior knowledge how t
 
 ## Prerequisites
 
+* [Google Chrome](http://www.google.com/chrome/) is a prerequisite for Postman REST Client.
+* [Postman REST Client](https://www.getpostman.com/) is used to make API requests.
+* Sign-up for a [GitHub account](https://github.com/) if you don't already have one so you can fork repo, make suggestions on issues and follow along with tutorials.
+* Access to [Salesforce Marketing Cloud](https://www.marketingcloud.com/) so that you can see result of request.
+
 ## How to make a SOAP API request using username and password as user credential
 
 ## How to get a SFMC API Key
