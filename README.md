@@ -149,12 +149,40 @@ On request following is the expected body of response.
 Notes:
 
 * **{{accessToken}}** contains access token that is used with requests using API key
-* AccessToken expires is valid for 60 minutes
+* AccessToken expires and is valid for 60 minutes
 
 For more information refer to https://developer.salesforce.com/docs/atlas.en-us.mc-getting-started.meta/mc-getting-started/get-access-token.htm
 
 
 ## How to make a SOAP API request using API key as user credential
+
+Get an `{{accessToken}}` and change request as follows.
+
+Response from request will be similar to previous request.
+
+```
+
+<?xml version="1.0" encoding="UTF-8"?>
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:u="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+   <s:Header>
+      <fueloauth xmlns="http://exacttarget.com">{{accessToken}}</fueloauth>
+   </s:Header>
+  <s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <RetrieveRequestMsg xmlns="http://exacttarget.com/wsdl/partnerAPI">
+         <RetrieveRequest>
+            <ObjectType>DataExtensionObject[Data Extension Name]</ObjectType>
+            <Properties>email</Properties>
+         </RetrieveRequest>
+      </RetrieveRequestMsg>
+  </s:Body>
+</s:Envelope>
+
+```
+
+Notes:
+
+* **{{accessToken}}** is access token for request
+* **[Data Extension Name]** replace with data extension name, in our case the data extension is called `contacts`
 
 ## How to make a REST API request
 
