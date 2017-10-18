@@ -33,6 +33,8 @@ Refer to [Get Started with the SOAP Web Services API](https://developer.salesfor
 
 Use https://trust.marketingcloud.com/ to determine your instance.
 
+Following is SOAP API request using username and password as user credential 
+
 ```
 URL: https://webservice.s7.exacttarget.com/Service.asmx
 REQUEST: POST
@@ -75,7 +77,7 @@ Notes:
 * **{{soapPassword}}** replace with password
 * **[Data Extension Name]** replace with data extension name, in our case the data extension is called `contacts`
 
-On request following is expected body of response
+On request following is the expected body of response.
 
 ```
 
@@ -104,6 +106,53 @@ Notes:
 * list of emails will depend on contents of data extension.
 
 ## How to get a SFMC API Key
+
+To get a SFMC API Key refer to [Get an API Key walk through](https://developer.salesforce.com/docs/atlas.en-us.mc-getting-started.meta/mc-getting-started/get-api-key.htm)
+
+The URL for the Marketing Cloud App Center is https://appcenter-auth.s1.marketingcloudapps.com/
+
+For reading and writing to a data extension an API intergration will be required with data extensions read write privileges.
+
+`{{clientId}}` and `{{clientSecret}}` will be advised when API intergration is setup.
+
+Following is REST API request to get API key
+
+```
+URL: https://auth.exacttargetapis.com/v1/requestToken
+REQUEST: POST
+HEADERS:
+Content-Type: application/json
+
+{
+    "clientId":"{{clientId}}",
+    "clientSecret":"{{clientSecret}}"
+}
+
+```
+
+Notes:
+
+* **{{clientId}}** replace with Client ID from API intergration
+* **{{clientSecret}}** replace with Client Secret from API intergration
+
+On request following is the expected body of response.
+
+```
+
+{
+    "accessToken": "{{accessToken}}",
+    "expiresIn": 3478
+}
+
+```
+
+Notes:
+
+* **{{accessToken}}** contains access token that is used with requests using API key
+* AccessToken expires is valid for 60 minutes
+
+For more information refer to https://developer.salesforce.com/docs/atlas.en-us.mc-getting-started.meta/mc-getting-started/get-access-token.htm
+
 
 ## How to make a SOAP API request using API key as user credential
 
