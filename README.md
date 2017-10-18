@@ -16,6 +16,10 @@
 
 This guide is intended to introduce to a developer with no prior knowledge how to use postman and SFMC APIs. Content was used in the hands-on tutorial about SFMC APIs first at presented at the [Salesforce Marketing Cloud developer group October 2017 meeting](https://www.meetup.com/Salesforce-Marketing-Cloud-Developers-Group/events/237067605/). 
 
+To keep things simple API request in tutorial will update a data extension with contact details.
+
+For more information and as a next step recommend reading developer documentation at [Get Started, Marketing Cloud Developers](https://developer.salesforce.com/docs/atlas.en-us.mc-getting-started.meta/mc-getting-started/index.htm).
+
 ## Prerequisites
 
 * [Google Chrome](http://www.google.com/chrome/) is a prerequisite for Postman REST Client.
