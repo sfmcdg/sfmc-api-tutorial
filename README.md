@@ -185,6 +185,70 @@ Notes:
 
 ## How to make a REST API request
 
+To make REST API request to insert record into data extension use following request.
+
+```
+URL: https://www.exacttargetapis.com/hub/v1/dataevents/key:contacts/rows/Email:someone@example.com
+REQUEST: PUT
+HEADERS:
+Content-Type: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+  "values":{
+    "LastLogin":"2013-05-23T14:32:00Z",
+    "IsActive":true,
+    "FirstName":"John",
+    "FollowerCount":2,
+    "LastName":"Smith"
+  }
+}
+
+```
+
+For more information about this request have a look at https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/putDataExtensionRowByKey.htm
+
+In summary
+
+```
+URL: https://www.exacttargetapis.com/hub/v1/dataevents/key:{{key}}/rows/{{primaryKeys}}
+REQUEST: PUT
+HEADERS:
+Content-Type: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+  "values":{  ...  }
+}
+
+```
+
+Notes:
+
+* **{{accessToken}}** is access token for request
+* **{{key}}** replace with data extension name, in our case the data extension is called `contacts`
+* **{{primaryKeys}}** replace with primary key, in our case email
+* values contains payload to be upserted into data extension.
+
+Expected response from request should be as follows:
+
+```
+{
+    "keys": {
+        "email": "someone@example.com"
+    },
+    "values": {
+        "lastLogin": "2013-05-23T14:32:00Z",
+        "isActive": "True",
+        "firstName": "John",
+        "followerCount": "2",
+        "lastName": "Smith"
+    }
+}
+```
+
+To test that new record was added use request discussed at [How to make a SOAP API request using API key as user credential](#how-to-make-a-soap-api-request-using-api-key-as-user-credential)
+
 ## How to contribute
 
 Make a pull request or suggestion on [issues](https://github.com/sfmcdg/sfmc-api-tutorial/issues)
